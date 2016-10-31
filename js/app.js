@@ -49,9 +49,18 @@ function genreSales(moviesArray) {
     moviesArray.reduce(function(currObj, movieObj) {
         var genreStr = movieObj.genre;
 
-        currObj[genreStr/*USE THIS NOTATION IF INDEX IS STRING VARIABLE*/]
-        // Object.key == Object["key];
+        if (currObj[genre] === undefined) {
+            currObj[genre] = {
+                totalSales: 0, 
+                totalTickes: 0, 
+                totalMovies: 0
+            };
+        }
 
+        currObj[genreStr/*USE THIS NOTATION IF INDEX IS STRING VARIABLE*/]
+        // Object.key == Object["key"];
+        currObj[genreStr].ticketSales +=  movieObj.sales;
+        return currObj;
 
     },{});
 
